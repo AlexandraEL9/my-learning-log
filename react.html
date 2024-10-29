@@ -1,0 +1,325 @@
+<h1>React</h1>
+<h2>What is 'REACT'?</h2>
+<p>
+    React is a popular JavaScript library developed by Facebook for building user interfaces, particularly single-page applications. It's widely used because it enables developers to build complex UIs by breaking them into small, reusable components. React is particularly known for its performance and simplicity, thanks to its use of a "virtual DOM," which minimizes direct interactions with the actual Document Object Model (DOM) and optimizes updates for efficiency.
+</p>
+<h3>Key Features of React:</h3>
+<ul>
+    <li><strong>Component Based:</strong> Everything in React is a component, a small piece of UI that can be reused and composed to create complex interfaces.</li>
+    <li><strong>Declarative:</strong> You define what the UI should look like, and React handles the underlying DOM updates when data changes.</li>
+    <li><strong>Virtual DOM:</strong> You define what the UI should look like, and React handles the underlying DOM updates when data changes.</li>
+    <li><strong>One-Way Data Flow:</strong> Data flows down from parent components to child components, making the code predictable and easier to debug.</li>
+</ul>
+<h3>Why Use React?</h3>
+<ul>
+    <li><strong>Speed:</strong> The virtual DOM and efficient updates make React a good choice for high-performance applications.</li>
+    <li><strong>Reusable Components:</strong> The component-based structure allows for modular code that’s easier to maintain and reuse.</li>
+    <li><strong>Large Ecosystem:</strong> React has a vast ecosystem with libraries and tools, making it flexible and extensible for a variety of use cases.
+    </li>
+    <li><strong>Popular in Industry:</strong> Many companies use React, meaning there's extensive documentation, community support, and job opportunities for those who know it.</li>
+</ul>
+<p>React is commonly used with React Router for navigation and Redux (or similar libraries) for state management in larger applications.</p>
+
+<a href="https://stackshare.io/react">More about React on stackshare</a>
+
+<hr>
+
+<h2>Hello World! in React</h2>
+<p>Within body vave a div with an id of root- 
+    `<div id="root"></div>`
+    anything 'react' in injected in this div
+</p>
+<p>Magic happens in the src folder. <br>
+    3 folders: App.js (optional), index.js, styles.css <br>
+
+    -index.js- like the index.html- where everything starts <br>
+
+--CODE SNIPPET- index.je--
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./styles.css";
+function App() {
+  return (
+    <div className="App">
+      <h1>Hello World</h1>
+    </div>
+  );
+}
+const rootElement = document.getElementById("root");
+const root = createRoot(rootElement);
+root.render(
+  <StrictMode>
+    <App />----------This is inside the App.js
+  </StrictMode>
+);
+
+App.js- has imports and the html
+
+</p>
+
+<hr>
+
+<h2>React in HTML</h2>
+
+<p>JSX looks like html but not HTML <br>
+  a way to use html (or something that looks like it in JS) <br>
+  cant use'class' - must use 'className' instead <br>
+  every element MUST be closed
+</p>
+
+<h3>Code snippets</h3>
+<h4>JSX Element</h4>
+<p>
+  // This line creates a JSX element, which is an `h1` heading with the text "Hello, world!" inside it.
+// The JSX syntax allows you to write HTML-like code in JavaScript, which React will convert into a virtual DOM element.
+let element = <h1>Hello, world!</h1>;
+
+// This line creates another JSX element, which is an empty `h1` heading with no content inside it.
+// JSX allows self-closing tags, so this is shorthand for <h1></h1>.
+let emptyHeading = <h1 />;
+</p>
+
+<h4>Functional component</h4>
+<p>
+  // Import the React library, which is required to use JSX and build components in React.
+import React from 'react';
+
+// Define a functional component called `UserProfile` that will render some JSX.
+// Functional components are a simpler way to create React components that only render UI and do not have state or lifecycle methods.
+export default function UserProfile() {
+  // The component returns a JSX structure, which React will convert into virtual DOM elements.
+  return (
+      // Create a `div` container with a class name of "UserProfile" to style this component if needed.
+      <div className="UserProfile">
+        // Inside this main `div`, create another `div` element containing the text "Hello".
+        <div>Hello</div>  
+        
+        // Add another `div` element, separate from the first, containing the text "World".
+        <div>World</div>
+      </div>
+  );
+}
+
+// Export the `UserProfile` component as the default export, so it can be imported and used in other files easily.
+</p>
+<p> (remember- every component needs a root element)</p>
+
+<h4>JSX Expressions</h4>
+<p>
+  // Declare a variable `name` and assign it the value 'Josh Perez'.
+// This will be used later to display a greeting.
+let name = 'Josh Perez';
+
+// Create a JSX element, which is an `h1` heading. It includes a JavaScript expression `{name}` within curly braces,
+// which will be evaluated and display the value of the `name` variable (i.e., 'Josh Perez') inside the heading.
+let element = <h1>Hello, {name}</h1>;
+
+// Define a function `fullName` that takes two parameters, `firstName` and `lastName`.
+// This function concatenates the two parameters with a space between them to create a full name.
+function fullName(firstName, lastName) {
+  return firstName + ' ' + lastName;
+}
+
+// Create another JSX element, which is also an `h1` heading.
+// This time, it includes a call to the `fullName` function, passing in 'Julie' and 'Johnson' as arguments.
+// The result ('Julie Johnson') will replace `{fullName('Julie', 'Johnson')}` and display as the heading content.
+let element = <h1>Hello, {fullName('Julie', 'Johnson')}</h1>;
+</p>
+
+<h4>JSX Attributes</h4>
+<p>
+  // Create a JSX `img` element and assign it to the constant `element`.
+// The `src` attribute is set dynamically using `{user.avatarUrl}`, which pulls in the `avatarUrl` property from a `user` object.
+// This allows you to display a user’s profile picture or avatar by setting the image source dynamically.
+const element = <img src={user.avatarUrl} />;
+
+// Create another JSX element, a `button`, and assign it to the constant `element`.
+// The `className` attribute (React's alternative to `class` in HTML) is set to "btn", which is typically used for styling the button.
+// Inside the button, the text "Click me" will be displayed. This element could trigger an event (like a click handler) if needed.
+const element = <button className="btn">Click me</button>;
+</p>
+
+<h4>JSX Functions</h4>
+<p>// Define a function called `name`. This function returns the string "Julie" when called.
+  name() {
+    return "Julie";
+  }
+  
+  // In the JSX returned from this code (assuming it's inside a React component), we use an `h1` element.
+  // Inside the `h1` element, we use curly braces `{ }` to embed JavaScript expressions in JSX.
+  return (
+    <h1>
+      // Call the `name` function inside the curly braces to get the string "Julie".
+      // This will display "Hi Julie!" in the heading when rendered.
+      Hi {name()}!
+    </h1>
+  );
+  </p>
+
+  <h4>Example</h4>
+
+  <p>So this in the HTML:</p>
+  <p><!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="utf-8" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+        <meta name="theme-color" content="#000000" />
+        <!--
+          manifest.json provides metadata used when your web app is added to the
+          homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
+        -->
+        <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    
+        <link
+          href="https://fonts.googleapis.com/css?family=Orbitron"
+          rel="stylesheet"
+        />
+        <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+        <!--
+          Notice the use of %PUBLIC_URL% in the tags above.
+          It will be replaced with the URL of the `public` folder during the build.
+          Only files inside the `public` folder can be referenced from the HTML.
+    
+          Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+          work correctly both with client-side routing and a non-root public URL.
+          Learn how to configure a non-root public URL by running `npm run build`.
+        -->
+        <title>React App</title>
+      </head>
+    
+      <body>
+        <h1>Challenge</h1>
+        <p>
+          Migrate this HTML from index.html to the React index.js
+        </p>
+        <small>
+          <a href="https://reactjs.org/" target="_blank" class="important">
+            Official React Website
+          </a>
+        </small>
+        <div id="root"></div>
+      </body>
+    </html>
+  </p>
+
+  <p>Will become this in index.js/</p>
+  <p>
+    import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+
+import "./App.css";
+
+const rootElement = document.getElementById("root");
+const root = createRoot(rootElement);
+
+root.render(
+  <StrictMode>
+    <div className="App">
+      <h1>Challenge</h1>
+      <p>Migrate this HTML from index.html to the React index.js</p>
+      <small>
+        <a
+          href="https://reactjs.org/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="important"
+        >
+          Official React Website
+        </a>
+      </small>
+    </div>
+  </StrictMode>
+);
+
+  </p>
+  <p>Dont forget to keep this in the html file- <div id="root"></div> as in this div is where the react code will go.</p>
+
+  <hr>
+
+<h2>React and CSS</h2>
+
+<h3>Code Snippets</h3>
+<h4>CSS i React Component</h4>
+<p>// Import the React library, which is required to use JSX and create React components.
+  import React from "react";
+  
+  // Import the CSS file "Student.css" to apply styles specific to this component.
+  // This file likely contains styles for elements with the class name "Student".
+  import "./Student.css";
+  
+  // Define a functional component called `Student`.
+  // Functional components are simple JavaScript functions that return JSX, which represents the UI.
+  export default function Student() {
+    // The component returns a JSX structure, which React will convert into virtual DOM elements.
+    return (
+      // Create a `div` container with a class name of "Student".
+      // The `className` attribute in JSX specifies the CSS class for this element.
+      // Any styles defined in "Student.css" under `.Student` will be applied to this `div`.
+      <div className="Student">
+        {/* Render the text "Julie Johnson" inside the `div`. */}
+        Julie Johnson
+      </div>
+    );
+  }
+  
+  // Export the `Student` component as the default export, so it can be imported and used in other files easily.
+  </p>
+  <p>import the file</p>
+
+  <h4>Example</h4>
+  <p>The react js uses 'className' to add classes to be targetted by the css in the App.css file.</p>
+  <h5>index.js</h5>
+  <p>
+    import { StrictMode } from "react";
+    import { createRoot } from "react-dom/client";
+    
+    import "./App.css";
+    
+    const rootElement = document.getElementById("root");
+    const root = createRoot(rootElement);
+    
+    root.render(
+      <StrictMode>
+        <div className="App">
+          <h1>Challenge</h1>
+          <p>
+            Make european cities blue and north american cities red from CSS in
+            React
+          </p>
+    
+          <ul>
+            <li>Sydney</li>
+            <li className="european">Paris</li>
+            <li className="north-american">Montreal</li>
+            <li className="european">Lisbon</li>
+            <li className="north-american">San Francisco</li>
+          </ul>
+        </div>
+      </StrictMode>
+    );
+    </p>
+    <h5>App.css</h5>
+    <p>body {
+      font-family: sans-serif;
+      padding: 0 20px;
+    }
+    
+    h1 {
+      text-align: center;
+      font-weight: 900;
+      margin: 0;
+      font-size: 34px;
+      line-height: 48px;
+    }
+    
+    .european {
+      color: red;
+    }
+    .north-american {
+      color: blue;
+    }
+    </p>
