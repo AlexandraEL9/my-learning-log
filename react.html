@@ -323,3 +323,76 @@ root.render(
       color: blue;
     }
     </p>
+
+    <hr>
+
+    <h2>React Components</h2>
+
+    <h3>Code Snippets</h3>
+    <h4>Functional Component</h4>
+    <p>// Import the React library, which provides the tools to create components and use JSX syntax.
+      import React from 'react';
+      
+      // Define a functional component named `UserProfile`.
+      // Functional components are simple JavaScript functions that return JSX, which represents the component's UI.
+      export default function UserProfile() {
+        // The `UserProfile` component returns a JSX structure that React will render into the DOM.
+        return (
+            // Create a `div` element with a class name of "UserProfile" for styling purposes.
+            <div className="UserProfile">
+              {/* Render another `div` with the text "Hello" inside. */}
+              <div>Hello</div>  
+              
+              {/* Render a second `div` with the text "World" inside. */}
+              <div>World</div>
+            </div>
+        );
+      }
+      
+      // Export the `UserProfile` component as the default export, making it reusable in other parts of the application.
+      
+    </p>
+    <p>Remember- every component needs one root element</p>
+
+    <h4>Embed an internal component</h4>
+    <p>// Import the React library to enable JSX and React component functionalities.
+      import React from 'react';
+      
+      // Import the `UserAvatar` component from a local file called "UserAvatar.js".
+      // This allows you to use `UserAvatar` as a reusable component within `UserProfile`.
+      import UserAvatar from "./UserAvatar";
+      
+      // Define a functional component named `UserProfile`.
+      // Functional components return JSX to describe what should be displayed in the UI.
+      export default function UserProfile() {
+        // The `UserProfile` component returns a JSX structure with a `div` container and two `UserAvatar` components inside it.
+        return (
+            // Create a `div` with a class name of "UserProfile" for styling purposes.
+            <div className="UserProfile">
+              {/* Render the `UserAvatar` component twice, creating two avatar elements within `UserProfile`. */}
+              <UserAvatar />
+              <UserAvatar />
+            </div>
+        );
+      }
+      
+      // Export the `UserProfile` component as the default export, making it easy to import and use in other parts of the application.
+      
+    </p>
+    <p>Note: Assuming UserAvatar is declared in UserAvatar.js</p>
+
+    <p>
+      react organises user interface into different components- whole page won't be 'in react' so to speak but 'parts/components' may be.
+    </p>
+
+    <h5>How to create a new component</h5>
+    <ol>
+      <li>create a new file inside src--- eg, Search.js (this creates the components file)</li>
+      <li>within new file start creating your function---- ensure name is matching to file name- in this cafe 'Search' </li>
+      <li>render onto page 'import React from "react" '</li>
+      <li>ensure component in exportable so able to be used by the page and other components  -- 'export default' function Search()</li>
+      <li>import the component into your page (html page)  -- import it: ' import Search from "./Search" '   Then place where you want it in the file with -- '<Search />' </li>
+      <li>Style by importing the css file into js file --import "./Search.css"  and add className(s) for targetting</li>
+      <li>create 'Seaech.css' file and style using css classNames</li>
+      <li><a href="https://codesandbox.io/p/sandbox/react-component-forked-wyxr2d?file=%2Fsrc%2FCities.js%3A17%2C1&workspaceId=5734d654-e325-444f-b224-8a2f26ae26f4">link to codesandbox example</a></li>
+    </ol>
