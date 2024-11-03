@@ -396,3 +396,63 @@ root.render(
       <li>create 'Seaech.css' file and style using css classNames</li>
       <li><a href="https://codesandbox.io/p/sandbox/react-component-forked-wyxr2d?file=%2Fsrc%2FCities.js%3A17%2C1&workspaceId=5734d654-e325-444f-b224-8a2f26ae26f4">link to codesandbox example</a></li>
     </ol>
+
+<hr>
+
+<h2>React Properties</h2>
+<h3>code snippets</h3>
+
+<h4>Passing ptoperties to a componenet</h4>
+<p><Student firstName="Julie" lastName="Johnson" age={23} pro={true} /></p>
+
+<h4>Accessing the properties from a component</h4>
+<p>
+  import React from "react";
+
+export default function Student(props) {
+  return (
+    <h1>
+      {props.firstName} {props.lastName} is {props.age}.
+    </h1>
+  )
+}
+</p>
+
+<p>Component properties are a way of sending extra information to a component 
+  add an attribute name
+</p>
+
+
+<hr>
+
+<h2>react Multiple components</h2>
+<h3>Code snippets</h3>
+
+<h4>Functional Component</h4>
+<p>
+  import React from 'react';
+
+export default function UserProfile() {
+  return (
+      <div className="UserProfile">
+        <div>Hello</div>  
+        <div>World</div>
+      </div>
+  );
+}
+</p>
+
+<h4>Embed an internal component</h4>
+<p>
+  import React from 'react';
+import UserAvatar from "./UserAvatar";
+
+export default function UserProfile() {
+  return (
+      <div className="UserProfile">
+        <UserAvatar />
+        <UserAvatar />
+      </div>
+  );
+}
+</p>
