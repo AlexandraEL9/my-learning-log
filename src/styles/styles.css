@@ -10,6 +10,50 @@ body {
     flex: 1;
 }
 
+/* Code window styling */
+textarea {
+    width: 80%;
+    height: 200px;
+    font-family: monospace;
+    font-size: 14px;
+    padding: 10px;
+}
+button {
+    margin-top: 10px;
+    padding: 8px 12px;
+    font-size: 16px;
+    cursor: pointer;
+}
+#output {
+    margin-top: 20px;
+    padding: 10px;
+    background: #fff;
+    border: 1px solid #ddd;
+    min-height: 50px;
+}
+
+/* Buttons */
+/* Button styling */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+button {
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    background: #f8f8f8;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #ddd;
+}
+
+
 /* Ensure footer sticks to the bottom */
 footer {
     flex-shrink: 0;
