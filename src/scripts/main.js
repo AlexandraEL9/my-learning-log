@@ -1,9 +1,15 @@
-// code editor functions
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("runBtn").addEventListener("click", runCode);
+    document.getElementById("saveBtn").addEventListener("click", saveCode);
+    document.getElementById("loadBtn").addEventListener("click", loadCode);
+    document.getElementById("clearBtn").addEventListener("click", clearOutput);
+});
+
 function runCode() {
     const code = document.getElementById('codeEditor').value;
     const outputDiv = document.getElementById("output");
     outputDiv.innerText = "";
-    
+
     try {
         let consoleOutput = [];
         const originalConsoleLog = console.log;
@@ -11,15 +17,11 @@ function runCode() {
             consoleOutput.push(message);
             originalConsoleLog.apply(console, arguments);
         };
-        
+
         let result = eval(code);
         console.log = originalConsoleLog;
-        
-        if (consoleOutput.length > 0) {
-            outputDiv.innerText = consoleOutput.join("\n");
-        } else {
-            outputDiv.innerText = result !== undefined ? result : "Code executed successfully";
-        }
+
+        outputDiv.innerText = consoleOutput.length > 0 ? consoleOutput.join("\n") : (result !== undefined ? result : "Code executed successfully");
     } catch (error) {
         outputDiv.innerText = "Error: " + error.message;
     }
@@ -44,7 +46,6 @@ function clearOutput() {
     document.getElementById("output").innerText = "";
 }
 
-// code snippet
 function copyCode() {
     const code = document.getElementById("codeSnippet").innerText;
     navigator.clipboard.writeText(code).then(() => {
