@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!--bespoke css-->
+    <link rel="stylesheet" href="/src/styles/styles.css">
+
+    <title>M.L.L- javaScript</title>
+</head>
+
+<body>
+    <!--navbar-->
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar"
+                aria-controls="sidebar">
+                Menu
+            </button>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+            <a class="navbar-brand">M.L.L</a>
+        </div>
+    </nav>
+
+    <!-- Sidebar Offcanvas Menu -->
+    <div class="offcanvas offcanvas-start bg-light" tabindex="-1" id="sidebar" aria-labelledby="sidebarLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="sidebarLabel">Menu</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <!-- Dropdown items -->
+            <div class="dropdown mb-3">
+                <button class="btn btn-secondary dropdown-toggle w-100" type="button" id="category1Dropdown"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    HTML
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="category1Dropdown">
+                    <li><a class="dropdown-item" href="#">Sub-item 1</a></li>
+                    <li><a class="dropdown-item" href="#">Sub-item 2</a></li>
+                    <li><a class="dropdown-item" href="#">Sub-item 3</a></li>
+                </ul>
+            </div>
+            <div class="dropdown mb-3">
+                <button class="btn btn-secondary dropdown-toggle w-100" type="button" id="category2Dropdown"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    CSS
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="category2Dropdown">
+                    <li><a class="dropdown-item" href="#">Sub-item 1</a></li>
+                    <li><a class="dropdown-item" href="#">Sub-item 2</a></li>
+                    <li><a class="dropdown-item" href="#">Sub-item 3</a></li>
+                </ul>
+            </div>
+            <!-- Add more dropdowns as needed -->
+            <div class="dropdown mb-3">
+                <button class="btn btn-secondary dropdown-toggle w-100" type="button" id="category2Dropdown"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    JavaScript
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="category2Dropdown">
+                    <li><a class="dropdown-item" href="javascript.html">Sub-item 1</a></li>
+                    <li><a class="dropdown-item" href="#">Sub-item 2</a></li>
+                    <li><a class="dropdown-item" href="#">Sub-item 3</a></li>
+                </ul>
+            </div>
+            <div class="dropdown mb-3">
+                <button class="btn btn-secondary dropdown-toggle w-100" type="button" id="category2Dropdown"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Python
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="category2Dropdown">
+                    <li><a class="dropdown-item" href="#">Sub-item 1</a></li>
+                    <li><a class="dropdown-item" href="#">Sub-item 2</a></li>
+                    <li><a class="dropdown-item" href="#">Sub-item 3</a></li>
+                </ul>
+            </div>
+            <div class="dropdown mb-3">
+                <button class="btn btn-secondary dropdown-toggle w-100" type="button" id="category2Dropdown"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    React
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="category2Dropdown">
+                    <li><a class="dropdown-item" href="#">Sub-item 1</a></li>
+                    <li><a class="dropdown-item" href="#">Sub-item 2</a></li>
+                    <li><a class="dropdown-item" href="#">Sub-item 3</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main section-->
+    <header>
+        <h1>HTML Introduction</h1>
+        <p>
+            <strong>HTML (HyperText Markup Language)</strong> is the standard language used to create and structure content on the web. 
+            It defines the elements of a webpage, such as headings, paragraphs, images, links, and tables, using <strong>tags</strong>. 
+            HTML allows browsers to interpret and display content in a structured way, forming the foundation of every website. 
+            It works alongside <strong>CSS (for styling)</strong> and <strong>JavaScript (for interactivity)</strong>.
+        </p>
+    </header>
+
+    <div class="container text-center mt-4">
+        <!-- Learning Section -->
+        <div class="row align-items-center mt-5">
+            <div class="container">
+                <h2>The Evolution of HTML & the Web</h2>
+        
+                <h3>Origins of Markup Languages (1960s - 1980s)</h3>
+                <ul>
+                    <li>IBM created <strong>GML (General Markup Language)</strong> for machine-readable document sharing.</li>
+                    <li>GML evolved into <strong>SGML (Standard Generalized Markup Language)</strong>, which structured documents.</li>
+                    <li>SGML lacked <strong>hypertext</strong> (no embedded links between documents).</li>
+                </ul>
+        
+                <h3>CERN & The Need for a Better System (Late 1980s)</h3>
+                <ul>
+                    <li>CERN researchers needed a better way to share and cross-reference research documents.</li>
+                    <li><strong>Tim Berners-Lee</strong> proposed linking research documents instead of just downloading them.</li>
+                </ul>
+        
+                <h3>The Birth of Hypertext & The Web (1991)</h3>
+                <ul>
+                    <li>Berners-Lee developed a system to <strong>link documents via hypertext</strong>.</li>
+                    <li>He created:
+                        <ul>
+                            <li><strong>HTTP (Hypertext Transfer Protocol)</strong> – rules for network communication.</li>
+                            <li><strong>HTML (Hypertext Markup Language)</strong> – based on SGML but added hyperlinks.</li>
+                            <li><strong>The first web browser</strong> – to display linked documents.</li>
+                            <li><strong>URL (Uniform Resource Locator)</strong> – a way to locate documents.</li>
+                            <li><strong>Web server & client model</strong> – servers store and deliver documents upon request.</li>
+                        </ul>
+                    </li>
+                </ul>
+        
+                <h3>Growth of the Web (Early 1990s - Mid 1990s)</h3>
+                <ul>
+                    <li>Others expanded HTML by adding <strong>new software and structural tags</strong>.</li>
+                    <li>Universities, hobbyists, and media companies started creating websites.</li>
+                    <li><strong>Images were integrated</strong>, making the web more dynamic.</li>
+                    <li>Within <strong>5 years, the web exploded in size & complexity</strong>.</li>
+                </ul>
+            </div>
+            <div class="container">
+                <h2>The Anatomy of a Web Page</h2>
+
+                <h3>HTML & Elements</h3>
+                <ul>
+                    <li>HTML structures content using **elements**, which act as **instructions** for browsers.</li>
+                    <li>Files are saved with a **.html** extension so browsers recognize them.</li>
+                    <li>Browsers interpret **elements** to display content as intended (e.g., headings, paragraphs, bold text, lists, tables).</li>
+                    <li>Despite modern advancements, web pages from **1991 still work in today’s browsers**.</li>
+                </ul>
+
+                <h3>HTML Elements & Tags</h3>
+                <ul>
+                    <li>An **element** consists of:
+                        <ul>
+                            <li>An **opening tag** (e.g., <code>&lt;h1&gt;</code>).</li>
+                            <li>The **content** (e.g., "This is a heading").</li>
+                            <li>A **closing tag** (e.g., <code>&lt;/h1&gt;</code>).</li>
+                        </ul>
+                    </li>
+                    <li>Tags tell the browser how to format content (e.g., headings appear bold and large).</li>
+                    <li>The browser reads from **left to right** and stops formatting when it reaches a **closing tag**.</li>
+                </ul>
+
+                <h3>Nested Elements & Parent-Child Relationships</h3>
+                <ul>
+                    <li>Elements can **contain other elements** (e.g., a paragraph can contain an emphasis tag).</li>
+                    <li>The **parent-child relationship** creates a **tree structure** (Document Object Model, or **DOM**).</li>
+                    <li>Browsers treat page elements as **objects** with properties (font, color, size, etc.).</li>
+                    <li>Technologies like **CSS & JavaScript** can modify these objects to create interactive pages.</li>
+                </ul>
+
+                <h3>Basic Structure of an HTML Document</h3>
+                <ul>
+                    <li>A minimal HTML page requires three core elements:
+                        <ul>
+                            <li><code>&lt;html&gt;</code> – The **root element**, parent of all others.</li>
+                            <li><code>&lt;head&gt;</code> – Contains **meta information**, page title, and resource links.</li>
+                            <li><code>&lt;body&gt;</code> – Contains the **visible content** of the webpage.</li>
+                        </ul>
+                    </li>
+                    <li>External resources (e.g., fonts) are linked in the **head** and automatically loaded by the browser.</li>
+                </ul>
+            </div>
+            <div class="container">
+                <h2>HTML Structure & Web Development Basics</h2>
+        
+                <img src="/mnt/data/Screenshot 2025-02-17 18.12.34.png" alt="HTML Structure Diagram">
+        
+                <h3>HTML, CSS & JavaScript: The Core of Web Development</h3>
+                <ul>
+                    <li><strong>HTML (Hypertext Markup Language)</strong> – Defines the structure of a webpage using elements and tags.</li>
+                    <li><strong>CSS (Cascading Stylesheets)</strong> – Styles the webpage, controlling fonts, colors, layouts, and animations.</li>
+                    <li><strong>JavaScript</strong> – Adds interactivity, enabling dynamic updates, animations, and user interactions.</li>
+                </ul>
+        
+                <h3>Basic HTML Structure</h3>
+                <ul>
+                    <li>HTML files must be saved with a <code>.html</code> extension.</li>
+                    <li>The structure includes:
+                        <ul>
+                            <li><code>&lt;!DOCTYPE html&gt;</code> – Declares the document as HTML5.</li>
+                            <li><code>&lt;html&gt;</code> – The root element containing all page content.</li>
+                            <li><code>&lt;head&gt;</code> – Stores metadata, page title, and linked resources.</li>
+                            <li><code>&lt;body&gt;</code> – Contains visible content such as text, images, and links.</li>
+                        </ul>
+                    </li>
+                </ul>
+        
+                <h3>Understanding HTML Elements</h3>
+                <ul>
+                    <li>HTML is made up of **elements and attributes**.</li>
+                    <li>Elements use **tags** (e.g., <code>&lt;p&gt;This is a paragraph&lt;/p&gt;</code>).</li>
+                    <li>Each HTML page follows the same **basic structure**.</li>
+                    <li>Elements **instruct the browser** on how to display content.</li>
+                </ul>
+        
+                <p>HTML files can be edited with any text editor and viewed in any browser.</p>
+            </div>
+        </div>   
+    </div>
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3 mt-auto">
+        <p>&copy; 2024 M.L.L. All Rights Reserved.</p>
+    </footer>
+
+    <!--Bespoke javaScript-->
+    <script src="/src/scripts/main.js"></script>
+
+    <!--bootstrap js-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
