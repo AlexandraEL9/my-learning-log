@@ -1,459 +1,187 @@
-<h1>React</h1>
-<h2>What is 'REACT'?</h2>
-<p>
-    React is a popular JavaScript library developed by Facebook for building user interfaces, particularly single-page applications. It's widely used because it enables developers to build complex UIs by breaking them into small, reusable components. React is particularly known for its performance and simplicity, thanks to its use of a "virtual DOM," which minimizes direct interactions with the actual Document Object Model (DOM) and optimizes updates for efficiency.
-</p>
-<h3>Key Features of React:</h3>
-<ul>
-    <li><strong>Component Based:</strong> Everything in React is a component, a small piece of UI that can be reused and composed to create complex interfaces.</li>
-    <li><strong>Declarative:</strong> You define what the UI should look like, and React handles the underlying DOM updates when data changes.</li>
-    <li><strong>Virtual DOM:</strong> You define what the UI should look like, and React handles the underlying DOM updates when data changes.</li>
-    <li><strong>One-Way Data Flow:</strong> Data flows down from parent components to child components, making the code predictable and easier to debug.</li>
-</ul>
-<h3>Why Use React?</h3>
-<ul>
-    <li><strong>Speed:</strong> The virtual DOM and efficient updates make React a good choice for high-performance applications.</li>
-    <li><strong>Reusable Components:</strong> The component-based structure allows for modular code that’s easier to maintain and reuse.</li>
-    <li><strong>Large Ecosystem:</strong> React has a vast ecosystem with libraries and tools, making it flexible and extensible for a variety of use cases.
-    </li>
-    <li><strong>Popular in Industry:</strong> Many companies use React, meaning there's extensive documentation, community support, and job opportunities for those who know it.</li>
-</ul>
-<p>React is commonly used with React Router for navigation and Redux (or similar libraries) for state management in larger applications.</p>
+<!DOCTYPE html>
+<html lang="en">
 
-<a href="https://stackshare.io/react">More about React on stackshare</a>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<hr>
+    <!--bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-<h2>Hello World! in React</h2>
-<p>Within body vave a div with an id of root- 
-    `<div id="root"></div>`
-    anything 'react' in injected in this div
-</p>
-<p>Magic happens in the src folder. <br>
-    3 folders: App.js (optional), index.js, styles.css <br>
+    <!--bespoke css-->
+    <link rel="stylesheet" href="/src/styles/styles.css">
 
-    -index.js- like the index.html- where everything starts <br>
+    <title>M.L.L- react</title>
+</head>
 
---CODE SNIPPET- index.je--
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import "./styles.css";
-function App() {
-  return (
-    <div className="App">
-      <h1>Hello World</h1>
-    </div>
-  );
-}
-const rootElement = document.getElementById("root");
-const root = createRoot(rootElement);
-root.render(
-  <StrictMode>
-    <App />----------This is inside the App.js
-  </StrictMode>
-);
-
-App.js- has imports and the html
-
-</p>
-
-<hr>
-
-<h2>React in HTML</h2>
-
-<p>JSX looks like html but not HTML <br>
-  a way to use html (or something that looks like it in JS) <br>
-  cant use'class' - must use 'className' instead <br>
-  every element MUST be closed
-</p>
-
-<h3>Code snippets</h3>
-<h4>JSX Element</h4>
-<p>
-  // This line creates a JSX element, which is an `h1` heading with the text "Hello, world!" inside it.
-// The JSX syntax allows you to write HTML-like code in JavaScript, which React will convert into a virtual DOM element.
-let element = <h1>Hello, world!</h1>;
-
-// This line creates another JSX element, which is an empty `h1` heading with no content inside it.
-// JSX allows self-closing tags, so this is shorthand for <h1></h1>.
-let emptyHeading = <h1 />;
-</p>
-
-<h4>Functional component</h4>
-<p>
-  // Import the React library, which is required to use JSX and build components in React.
-import React from 'react';
-
-// Define a functional component called `UserProfile` that will render some JSX.
-// Functional components are a simpler way to create React components that only render UI and do not have state or lifecycle methods.
-export default function UserProfile() {
-  // The component returns a JSX structure, which React will convert into virtual DOM elements.
-  return (
-      // Create a `div` container with a class name of "UserProfile" to style this component if needed.
-      <div className="UserProfile">
-        // Inside this main `div`, create another `div` element containing the text "Hello".
-        <div>Hello</div>  
-        
-        // Add another `div` element, separate from the first, containing the text "World".
-        <div>World</div>
-      </div>
-  );
-}
-
-// Export the `UserProfile` component as the default export, so it can be imported and used in other files easily.
-</p>
-<p> (remember- every component needs a root element)</p>
-
-<h4>JSX Expressions</h4>
-<p>
-  // Declare a variable `name` and assign it the value 'Josh Perez'.
-// This will be used later to display a greeting.
-let name = 'Josh Perez';
-
-// Create a JSX element, which is an `h1` heading. It includes a JavaScript expression `{name}` within curly braces,
-// which will be evaluated and display the value of the `name` variable (i.e., 'Josh Perez') inside the heading.
-let element = <h1>Hello, {name}</h1>;
-
-// Define a function `fullName` that takes two parameters, `firstName` and `lastName`.
-// This function concatenates the two parameters with a space between them to create a full name.
-function fullName(firstName, lastName) {
-  return firstName + ' ' + lastName;
-}
-
-// Create another JSX element, which is also an `h1` heading.
-// This time, it includes a call to the `fullName` function, passing in 'Julie' and 'Johnson' as arguments.
-// The result ('Julie Johnson') will replace `{fullName('Julie', 'Johnson')}` and display as the heading content.
-let element = <h1>Hello, {fullName('Julie', 'Johnson')}</h1>;
-</p>
-
-<h4>JSX Attributes</h4>
-<p>
-  // Create a JSX `img` element and assign it to the constant `element`.
-// The `src` attribute is set dynamically using `{user.avatarUrl}`, which pulls in the `avatarUrl` property from a `user` object.
-// This allows you to display a user’s profile picture or avatar by setting the image source dynamically.
-const element = <img src={user.avatarUrl} />;
-
-// Create another JSX element, a `button`, and assign it to the constant `element`.
-// The `className` attribute (React's alternative to `class` in HTML) is set to "btn", which is typically used for styling the button.
-// Inside the button, the text "Click me" will be displayed. This element could trigger an event (like a click handler) if needed.
-const element = <button className="btn">Click me</button>;
-</p>
-
-<h4>JSX Functions</h4>
-<p>// Define a function called `name`. This function returns the string "Julie" when called.
-  name() {
-    return "Julie";
-  }
-  
-  // In the JSX returned from this code (assuming it's inside a React component), we use an `h1` element.
-  // Inside the `h1` element, we use curly braces `{ }` to embed JavaScript expressions in JSX.
-  return (
-    <h1>
-      // Call the `name` function inside the curly braces to get the string "Julie".
-      // This will display "Hi Julie!" in the heading when rendered.
-      Hi {name()}!
-    </h1>
-  );
-  </p>
-
-  <h4>Example</h4>
-
-  <p>So this in the HTML:</p>
-  <p><!DOCTYPE html>
-    <html lang="en">
-      <head>
-        <meta charset="utf-8" />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        />
-        <meta name="theme-color" content="#000000" />
-        <!--
-          manifest.json provides metadata used when your web app is added to the
-          homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
-        -->
-        <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    
-        <link
-          href="https://fonts.googleapis.com/css?family=Orbitron"
-          rel="stylesheet"
-        />
-        <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
-        <!--
-          Notice the use of %PUBLIC_URL% in the tags above.
-          It will be replaced with the URL of the `public` folder during the build.
-          Only files inside the `public` folder can be referenced from the HTML.
-    
-          Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-          work correctly both with client-side routing and a non-root public URL.
-          Learn how to configure a non-root public URL by running `npm run build`.
-        -->
-        <title>React App</title>
-      </head>
-    
-      <body>
-        <h1>Challenge</h1>
-        <p>
-          Migrate this HTML from index.html to the React index.js
-        </p>
-        <small>
-          <a href="https://reactjs.org/" target="_blank" class="important">
-            Official React Website
-          </a>
-        </small>
-        <div id="root"></div>
-      </body>
-    </html>
-  </p>
-
-  <p>Will become this in index.js/</p>
-  <p>
-    import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-
-import "./App.css";
-
-const rootElement = document.getElementById("root");
-const root = createRoot(rootElement);
-
-root.render(
-  <StrictMode>
-    <div className="App">
-      <h1>Challenge</h1>
-      <p>Migrate this HTML from index.html to the React index.js</p>
-      <small>
-        <a
-          href="https://reactjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="important"
-        >
-          Official React Website
-        </a>
-      </small>
-    </div>
-  </StrictMode>
-);
-
-  </p>
-  <p>Dont forget to keep this in the html file- <div id="root"></div> as in this div is where the react code will go.</p>
-
-  <hr>
-
-<h2>React and CSS</h2>
-
-<h3>Code Snippets</h3>
-<h4>CSS i React Component</h4>
-<p>// Import the React library, which is required to use JSX and create React components.
-  import React from "react";
-  
-  // Import the CSS file "Student.css" to apply styles specific to this component.
-  // This file likely contains styles for elements with the class name "Student".
-  import "./Student.css";
-  
-  // Define a functional component called `Student`.
-  // Functional components are simple JavaScript functions that return JSX, which represents the UI.
-  export default function Student() {
-    // The component returns a JSX structure, which React will convert into virtual DOM elements.
-    return (
-      // Create a `div` container with a class name of "Student".
-      // The `className` attribute in JSX specifies the CSS class for this element.
-      // Any styles defined in "Student.css" under `.Student` will be applied to this `div`.
-      <div className="Student">
-        {/* Render the text "Julie Johnson" inside the `div`. */}
-        Julie Johnson
-      </div>
-    );
-  }
-  
-  // Export the `Student` component as the default export, so it can be imported and used in other files easily.
-  </p>
-  <p>import the file</p>
-
-  <h4>Example</h4>
-  <p>The react js uses 'className' to add classes to be targetted by the css in the App.css file.</p>
-  <h5>index.js</h5>
-  <p>
-    import { StrictMode } from "react";
-    import { createRoot } from "react-dom/client";
-    
-    import "./App.css";
-    
-    const rootElement = document.getElementById("root");
-    const root = createRoot(rootElement);
-    
-    root.render(
-      <StrictMode>
-        <div className="App">
-          <h1>Challenge</h1>
-          <p>
-            Make european cities blue and north american cities red from CSS in
-            React
-          </p>
-    
-          <ul>
-            <li>Sydney</li>
-            <li className="european">Paris</li>
-            <li className="north-american">Montreal</li>
-            <li className="european">Lisbon</li>
-            <li className="north-american">San Francisco</li>
-          </ul>
+<body>
+    <!--navbar-->
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar"
+                aria-controls="sidebar">
+                Menu
+            </button>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+            <a class="navbar-brand">M.L.L</a>
         </div>
-      </StrictMode>
-    );
-    </p>
-    <h5>App.css</h5>
-    <p>body {
-      font-family: sans-serif;
-      padding: 0 20px;
-    }
-    
-    h1 {
-      text-align: center;
-      font-weight: 900;
-      margin: 0;
-      font-size: 34px;
-      line-height: 48px;
-    }
-    
-    .european {
-      color: red;
-    }
-    .north-american {
-      color: blue;
-    }
-    </p>
+    </nav>
 
-    <hr>
-
-    <h2>React Components</h2>
-
-    <h3>Code Snippets</h3>
-    <h4>Functional Component</h4>
-    <p>// Import the React library, which provides the tools to create components and use JSX syntax.
-      import React from 'react';
-      
-      // Define a functional component named `UserProfile`.
-      // Functional components are simple JavaScript functions that return JSX, which represents the component's UI.
-      export default function UserProfile() {
-        // The `UserProfile` component returns a JSX structure that React will render into the DOM.
-        return (
-            // Create a `div` element with a class name of "UserProfile" for styling purposes.
-            <div className="UserProfile">
-              {/* Render another `div` with the text "Hello" inside. */}
-              <div>Hello</div>  
-              
-              {/* Render a second `div` with the text "World" inside. */}
-              <div>World</div>
+    <!-- Sidebar Offcanvas Menu -->
+    <div class="offcanvas offcanvas-start bg-light" tabindex="-1" id="sidebar" aria-labelledby="sidebarLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="sidebarLabel">Menu</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <!-- Dropdown items -->
+            <div class="dropdown mb-3">
+                <button class="btn btn-secondary dropdown-toggle w-100" type="button" id="category1Dropdown"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    HTML
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="category1Dropdown">
+                    <li><a class="dropdown-item" href="#">Sub-item 1</a></li>
+                    <li><a class="dropdown-item" href="#">Sub-item 2</a></li>
+                    <li><a class="dropdown-item" href="#">Sub-item 3</a></li>
+                </ul>
             </div>
-        );
-      }
-      
-      // Export the `UserProfile` component as the default export, making it reusable in other parts of the application.
-      
-    </p>
-    <p>Remember- every component needs one root element</p>
-
-    <h4>Embed an internal component</h4>
-    <p>// Import the React library to enable JSX and React component functionalities.
-      import React from 'react';
-      
-      // Import the `UserAvatar` component from a local file called "UserAvatar.js".
-      // This allows you to use `UserAvatar` as a reusable component within `UserProfile`.
-      import UserAvatar from "./UserAvatar";
-      
-      // Define a functional component named `UserProfile`.
-      // Functional components return JSX to describe what should be displayed in the UI.
-      export default function UserProfile() {
-        // The `UserProfile` component returns a JSX structure with a `div` container and two `UserAvatar` components inside it.
-        return (
-            // Create a `div` with a class name of "UserProfile" for styling purposes.
-            <div className="UserProfile">
-              {/* Render the `UserAvatar` component twice, creating two avatar elements within `UserProfile`. */}
-              <UserAvatar />
-              <UserAvatar />
+            <div class="dropdown mb-3">
+                <button class="btn btn-secondary dropdown-toggle w-100" type="button" id="category2Dropdown"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    CSS
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="category2Dropdown">
+                    <li><a class="dropdown-item" href="#">Sub-item 1</a></li>
+                    <li><a class="dropdown-item" href="#">Sub-item 2</a></li>
+                    <li><a class="dropdown-item" href="#">Sub-item 3</a></li>
+                </ul>
             </div>
-        );
-      }
-      
-      // Export the `UserProfile` component as the default export, making it easy to import and use in other parts of the application.
-      
-    </p>
-    <p>Note: Assuming UserAvatar is declared in UserAvatar.js</p>
+            <!-- Add more dropdowns as needed -->
+            <div class="dropdown mb-3">
+                <button class="btn btn-secondary dropdown-toggle w-100" type="button" id="category2Dropdown"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    JavaScript
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="category2Dropdown">
+                    <li><a class="dropdown-item" href="javascript.html">Sub-item 1</a></li>
+                    <li><a class="dropdown-item" href="#">Sub-item 2</a></li>
+                    <li><a class="dropdown-item" href="#">Sub-item 3</a></li>
+                </ul>
+            </div>
+            <div class="dropdown mb-3">
+                <button class="btn btn-secondary dropdown-toggle w-100" type="button" id="category2Dropdown"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Python
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="category2Dropdown">
+                    <li><a class="dropdown-item" href="#">Sub-item 1</a></li>
+                    <li><a class="dropdown-item" href="#">Sub-item 2</a></li>
+                    <li><a class="dropdown-item" href="#">Sub-item 3</a></li>
+                </ul>
+            </div>
+            <div class="dropdown mb-3">
+                <button class="btn btn-secondary dropdown-toggle w-100" type="button" id="category2Dropdown"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    React
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="category2Dropdown">
+                    <li><a class="dropdown-item" href="#">Sub-item 1</a></li>
+                    <li><a class="dropdown-item" href="#">Sub-item 2</a></li>
+                    <li><a class="dropdown-item" href="#">Sub-item 3</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-    <p>
-      react organises user interface into different components- whole page won't be 'in react' so to speak but 'parts/components' may be.
-    </p>
+    <!-- Main section-->
+    <header>
+        <h1>JavaScript Introduction</h1>
+        <p>
+            JavaScript is a <strong>powerful, versatile programming language</strong> that is primarily used to add
+            <strong>interactivity and dynamic behavior </strong>to websites. Unlike HTML and CSS, which handle structure
+            and styling, JavaScript allows developers to create interactive elements like dropdown menus, form
+            validation, animations, and real-time content updates. It runs directly in the browser, making it an
+            essential tool for modern web development. JavaScript is also widely used beyond the web, powering
+            server-side applications (Node.js), mobile apps, and even game development. Its flexibility and ease of use
+            make it a great language for beginners and professionals alike.
+        </p>
+    </header>
 
-    <h5>How to create a new component</h5>
-    <ol>
-      <li>create a new file inside src--- eg, Search.js (this creates the components file)</li>
-      <li>within new file start creating your function---- ensure name is matching to file name- in this cafe 'Search' </li>
-      <li>render onto page 'import React from "react" '</li>
-      <li>ensure component in exportable so able to be used by the page and other components  -- 'export default' function Search()</li>
-      <li>import the component into your page (html page)  -- import it: ' import Search from "./Search" '   Then place where you want it in the file with -- '<Search />' </li>
-      <li>Style by importing the css file into js file --import "./Search.css"  and add className(s) for targetting</li>
-      <li>create 'Seaech.css' file and style using css classNames</li>
-      <li><a href="https://codesandbox.io/p/sandbox/react-component-forked-wyxr2d?file=%2Fsrc%2FCities.js%3A17%2C1&workspaceId=5734d654-e325-444f-b224-8a2f26ae26f4">link to codesandbox example</a></li>
-    </ol>
+    <div class="container text-center mt-4">
+        <!-- Learning Section -->
+        <div class="row align-items-center mt-5">
+            <div class="col-md-6">
+                <h2>console.log</h2>
+                <p>
+                    The <code>console.log()</code> function is a built-in JavaScript method that allows you to print
+                    messages to the browser console.
+                    This is useful for debugging and testing your code, as it lets you see the output of variables,
+                    functions, and other data in real-time.
+                    To use <code>console.log()</code>, simply pass the value you want to log as an argument inside the
+                    parentheses. For example:
+                </p>
+                <p>
+                    ✅ This will output "Hello, world!" in the browser's developer console (F12 > Console tab)
+                    It's an essential tool for understanding how your code works and spotting errors quickly!
+                    You can check in the below terminal and console.
+                </p>
+            </div>
+            <div class="col-md-6">
+                <!-- Code Snippet Section -->
+                <div class="code-snippet-container">
+                    <div class="snippet-header">
+                        <h3>📁 Related Code Snippets</h3>
+                    </div>
+                    <div class="snippet-content">
+                        <p><a href="#" class="snippet-title">Console.log</a></p>
+                        <pre class="code-box"><code id="codeSnippet">
+console.log("Hello World!")
+                        </code></pre>
+                        <button class="copy-btn" onclick="copyCode()">Copy code</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-<hr>
+        <!-- Code Editor and Output Section Side by Side -->
+        <div class="row mt-5">
+            <div class="col-md-6">
+                <div class="editor-container">
+                    <h2>Code Learning Sandbox</h2>
+                    <textarea id="codeEditor" class="form-control" placeholder="Type your code here..."></textarea>
+                    <div class="button-container mt-3">
+                        <button id="runBtn" class="btn btn-primary">Run</button>
+                        <button id="saveBtn" class="btn btn-success">Save</button>
+                        <button id="loadBtn" class="btn btn-warning">Load</button>
+                        <button id="clearBtn" class="btn btn-danger">Clear Output</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="output-container">
+                    <h2>Output:</h2>
+                    <div id="output" class="output-terminal"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3 mt-auto">
+        <p>&copy; 2024 M.L.L. All Rights Reserved.</p>
+    </footer>
 
-<h2>React Properties</h2>
-<h3>code snippets</h3>
+    <!--Bespoke javaScript-->
+    <script src="/src/scripts/main.js"></script>
 
-<h4>Passing ptoperties to a componenet</h4>
-<p><Student firstName="Julie" lastName="Johnson" age={23} pro={true} /></p>
+    <!--bootstrap js-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
 
-<h4>Accessing the properties from a component</h4>
-<p>
-  import React from "react";
-
-export default function Student(props) {
-  return (
-    <h1>
-      {props.firstName} {props.lastName} is {props.age}.
-    </h1>
-  )
-}
-</p>
-
-<p>Component properties are a way of sending extra information to a component 
-  add an attribute name
-</p>
-
-
-<hr>
-
-<h2>react Multiple components</h2>
-<h3>Code snippets</h3>
-
-<h4>Functional Component</h4>
-<p>
-  import React from 'react';
-
-export default function UserProfile() {
-  return (
-      <div className="UserProfile">
-        <div>Hello</div>  
-        <div>World</div>
-      </div>
-  );
-}
-</p>
-
-<h4>Embed an internal component</h4>
-<p>
-  import React from 'react';
-import UserAvatar from "./UserAvatar";
-
-export default function UserProfile() {
-  return (
-      <div className="UserProfile">
-        <UserAvatar />
-        <UserAvatar />
-      </div>
-  );
-}
-</p>
-
+</html>
